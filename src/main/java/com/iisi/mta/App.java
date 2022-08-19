@@ -37,6 +37,7 @@ public class App {
 //		extractCategorytoCsv(catrgory_cloudMandatory, OutputPath_cloudMandatory);
 		outputToFileWhenMandatoryIssue();
 		
+//		testingGetJarFileName();
 	}
 
 	private static void analysisData() throws IOException {
@@ -148,5 +149,32 @@ public class App {
 		fr.close();
 		System.out.printf("Extract category[%s] DONE.\n", category);
 	}
+	
+	//測試切分字串
+		private static void testingGetJarFileName() {
+			String testingStr = "/home/iisi/Desktop/mta-web-distribution-5.2.1.Final/standalone/data/windup/17340/reports/8/archives/APPSAgent-1.0.0.jar/com/cht/monitor/agent/PerformanceAgent.java";
+			
+			// archives/
+//			String[] depriveArchives = testingStr.split(Pattern.quote("archives/"));
+			String[] depriveArchives = testingStr.split("archives/");
+			System.out.println("depriveArchives: " + depriveArchives[1]);
+			
+//			// usage of Regex positive lookbehind
+			// .split("(?<=.jar)") let ".jar" string showing in first substring.
+			String[] parts = depriveArchives[1].split("(?<=.jar)");
+			String partSliceA = parts[0]; 
+			String partSliceB = parts[1]; 
+			
+			System.out.println("part1: " + partSliceA);
+			System.out.println("part2: " + partSliceB);
+			
+			String[] data = partSliceB.split("/");
+			System.out.println(data[1]);
+			System.out.println(data[2]);
+			
+			
+			System.out.println("End");
+//			return "";
+		}
 		
 }
