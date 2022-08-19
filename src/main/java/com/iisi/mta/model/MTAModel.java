@@ -17,5 +17,9 @@ public class MTAModel {
 		return "MTAModel [category=" + category + ", title=" + title + ", application=" + application + ", filePath="
 				+ filePath + "]";
 	}
+	
+	public String showCategoryTitleApplicationFilepath() {
+		return category + "," + title + "," + application + "," + filePath;
+	}
 
 }
